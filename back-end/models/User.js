@@ -6,7 +6,7 @@ const userSchema = new Schema({
   name: {
     type: String,
     required: true,
-    min: 6,
+    min: 3,
     max: 255,
   },
   username: {
@@ -25,7 +25,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     max: 255,
-    min: 6,
+    min: 4,
   },
   password: {
     type: String,
