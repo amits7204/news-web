@@ -3,6 +3,7 @@ import NewsApi from "./Components/NewsCompents/NewsApi"
 function App() {
   return (
     <div className="App">
+     
       <NewsApi />
     </div>
   );
