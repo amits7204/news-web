@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const express = require("express");
+const patient = require("../patient");
 const { registerValidation, loginValidation } = require("../validation");
 const User = require("../models/User");
 
@@ -19,8 +20,9 @@ const addUsers = async (req, res, next) => {
     await bcrypt.genSalt(10)
   );
   const user = new User({
-    name: req.body.name,
-    username: req.body.username,
+    fname: req.body.fname,
+    lname: req.body.lname,
+    age: req.body.age,
     email: req.body.email,
     gender: req.body.gender,
     password: hashedPassword,
@@ -39,16 +41,40 @@ const loginUser = async (req, res, next) => {
   if (error) {
     return res.status(400).send(error.details[0].message);
   }
-
+  console.log(req.body.email);
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
     return res.status(400).send("Email or password is wrong");
   }
-
+  console.log(req.body.password);
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(400).send("Invalid password");
 
   res.send("logged in");
 };
 
-module.exports = { addUsers, loginUser };
+const getPatient = async (req, res, next) => {
+  res.status(200).json(patient);
+};
+
+const updatePatient = async (req, res, next) => {
+  const id = req.params.id;
+  console.log("ID: ", req.body.fname);
+  const index = patient.findIndex((patient) => {
+    return patient.id == Number.parseInt(id);
+  });
+
+  if (index >= 0) {
+    const updatedpatient = patient[index];
+    updatedpatient.first_name = req.body.fname;
+    updatedpatient.last_name = req.body.lname;
+    updatedpatient.age = req.body.age;
+    updatedpatient.email = req.body.email;
+    updatedpatient.gender = req.body.gender;
+    res.status(200).json(updatedpatient);
+  } else {
+    res.status(404).json({ error: "Updation of student failed" });
+  }
+};
+
+module.exports = { addUsers, loginUser, getPatient, updatePatient };
