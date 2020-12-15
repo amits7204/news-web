@@ -1,9 +1,9 @@
 import React from "react";
-import NewsComponent from "./Components/NewsCompents/NewsComponent";
+import NewsApi from "./Components/NewsCompents/NewsApi";
 function App() {
   return (
     <div className="App">
-      <NewsComponent />
+      <NewsApi />
     </div>
   );
 }
