@@ -14,7 +14,8 @@ import SportsIcon from "@material-ui/icons/Sports";
 import TimelineIcon from "@material-ui/icons/Timeline";
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 275,
+    minWidth: 185,
+    borderRadius: 7,
   },
   listRoot: {
     width: "100%",
