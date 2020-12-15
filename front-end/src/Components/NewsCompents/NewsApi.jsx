@@ -1,15 +1,15 @@
-import React, { useEffect } from "react"
-import { useDispatch } from 'react-redux'
-import {getNewsData} from "../../Redux/NewsRedux/ActionCreator"
-import Banner from "./Banner"
-import TopNews from "./TopNews"
-import BreakingNews from "./BreakingNews"
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getNewsData } from "../../Redux/NewsRedux/ActionCreator";
+import Banner from "./Banner";
+import TopNews from "./TopNews";
+import BreakingNews from "./BreakingNews";
 
 function NewsApi() {
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    return  dispatch(getNewsData())
+    return dispatch(getNewsData());
   });
 
   return (
