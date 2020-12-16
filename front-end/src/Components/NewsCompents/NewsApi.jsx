@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getNewsData } from "../../Redux/NewsRedux/ActionCreator";
 import Banner from "./Banner";
 import TopNews from "./TopNews";
-import BreakingNews from "./BreakingNews";
+// import BreakingNews from "./BreakingNews";
 
 function NewsApi() {
   const dispatch = useDispatch();

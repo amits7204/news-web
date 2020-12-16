@@ -5,7 +5,7 @@ import {
   USER_POST_REQUEST,
   USER_POST_SUCCESS,
   USER_POST_FAILURE,
-} from "./ActionTypes";
+} from "./AuthActionTypes";
 
 export const initstate = {
   //   patientData: [],

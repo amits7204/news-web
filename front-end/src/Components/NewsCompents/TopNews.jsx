@@ -109,8 +109,8 @@ export default function TopNews() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={articles[12].urlToImage}
-                    title={articles[12].source.name}
+                    image={articles && articles[12].urlToImage}
+                    title={articles && articles[12].source.name}
                   />
                   <CardContent>
                     {/* below image middle */}
