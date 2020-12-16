@@ -20,6 +20,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import FaceIcon from "@material-ui/icons/Face";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import ShareIcon from "@material-ui/icons/Share";
+import CategoryComponent from "../NewsCompents/CategoryComponent";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,8 +96,10 @@ export default function TopNews() {
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={2}>
-            <h4>Category & Profile</h4>
-            <Paper className={classes.paper}>xs=3</Paper>
+            <h4 style={{ color: "grey" }}>Category & Profile</h4>
+            <Paper className={classes.paper}>
+              <CategoryComponent />
+            </Paper>
           </Grid>
           {/* middle start */}
           <Grid item xs={12} md={6}>
@@ -106,8 +109,8 @@ export default function TopNews() {
                 <CardActionArea>
                   <CardMedia
                     className={classes.media}
-                    image={articles[12].urlToImage}
-                    title={articles[12].source.name}
+                    image={articles && articles[12].urlToImage}
+                    title={articles && articles[12].source.name}
                   />
                   <CardContent>
                     {/* below image middle */}
@@ -342,7 +345,7 @@ export default function TopNews() {
           {/* middle end */}
 
           <Grid item xs={12} md={4}>
-            <h4>Related News</h4>
+            <h4 style={{ color: "grey" }}>Related News</h4>
             {articles &&
               articles.map((item) => {
                 return (
